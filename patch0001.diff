@@ -1,0 +1,33 @@
+From f376fd479f45a7977b3713d48e3a2eeb9f19c455 Mon Sep 17 00:00:00 2001
+From: Matt Rider <matt@mjrider.com>
+Date: Sun, 18 May 2014 17:30:26 -0400
+Subject: [PATCH] re try slowly
+
+---
+ styles/tweak.less | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/styles/tweak.less b/styles/tweak.less
+index 92168ce..af7bd78 100644
+--- a/styles/tweak.less
++++ b/styles/tweak.less
+@@ -281,7 +281,7 @@
+ 
+ // tweak: { "type" : "checkbox", "title" : "Show Site Info Icon", "active" : "false" }
+ 
+-/*h2 {
++h2 {
+ 	font-family: 'crevil black'!important;
+ 	text-shadow: 1px 1px  2px RGBA(0, 0, 0, 0.3);
+ 	font-weight:bold;
+@@ -292,4 +292,4 @@
+ 	font-family: 'crevil black'!important;
+ 	text-shadow 1px 1px 0.5 RGBA(0, 0, 0, 0.3);
+ 
+-}*/
+\ No newline at end of file
++}
+\ No newline at end of file
+-- 
+1.8.4.2
+
