@@ -1,0 +1,148 @@
+
+@font-face {
+	font-family: 'extra-icon-font';
+	src: url('/assets/extra-icon-font.eot');
+	src: url('/assets/extra-icon-font.eot?#iefix') format('embedded-opentype'),
+		url('/assets/extra-icon-font.svg#extra-icon-font') format('svg'),
+		url('/assets/extra-icon-font.woff') format('woff'),
+		url('/assets/extra-icon-font.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'extra-icon-font';
+	content: attr(data-icon);
+	speak: none;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'extra-icon-font';
+	font-style: normal;
+	speak: none;
+}
+.icon-youtube:before {
+	content: "\e000";
+}
+.icon-youtube-square:before {
+	content: "\e001";
+}
+.icon-youtube-round:before {
+	content: "\e002";
+}
+.icon-vimeo:before {
+	content: "\e003";
+}
+.icon-vimeo-square:before {
+	content: "\e004";
+}
+.icon-vimeo-round:before {
+	content: "\e005";
+}
+.icon-twitter:before {
+	content: "\e006";
+}
+.icon-twitter-square:before {
+	content: "\e007";
+}
+.icon-twitter-round:before {
+	content: "\e008";
+}
+.icon-tumblr:before {
+	content: "\e009";
+}
+.icon-tumblr-square:before {
+	content: "\e00a";
+}
+.icon-tumblr-round:before {
+	content: "\e00b";
+}
+.icon-pinterest:before {
+	content: "\e00c";
+}
+.icon-pinterest-square:before {
+	content: "\e00d";
+}
+.icon-pinterest-round:before {
+	content: "\e00e";
+}
+.icon-linkedin:before {
+	content: "\e00f";
+}
+.icon-linkedin-square:before {
+	content: "\e010";
+}
+.icon-linkedin-round:before {
+	content: "\e011";
+}
+.icon-instagram:before {
+	content: "\e012";
+}
+.icon-instagram-square:before {
+	content: "\e013";
+}
+.icon-instagram-round:before {
+	content: "\e014";
+}
+.icon-google:before {
+	content: "\e015";
+}
+.icon-google-square:before {
+	content: "\e016";
+}
+.icon-google-round:before {
+	content: "\e017";
+}
+.icon-foursquare:before {
+	content: "\e018";
+}
+.icon-foursquare-square:before {
+	content: "\e019";
+}
+.icon-foursquare-round:before {
+	content: "\e01a";
+}
+.icon-flickr:before {
+	content: "\e01b";
+}
+.icon-flickr-square:before {
+	content: "\e01c";
+}
+.icon-flickr-round:before {
+	content: "\e01d";
+}
+.icon-facebook:before {
+	content: "\e01e";
+}
+.icon-facebook-square:before {
+	content: "\e01f";
+}
+.icon-facebook-round:before {
+	content: "\e020";
+}
+.icon-list:before {
+	content: "\e021";
+}
+.icon-arrow:before {
+	content: "\e022";
+}
+.icon-arrow-2:before {
+	content: "\e023";
+}
+.icon-arrow-3:before {
+	content: "\e024";
+}
+.icon-arrow-4:before {
+	content: "\e025";
+}
+.icon-info-circle:before {
+	content: "\e026";
+}
+.icon-close:before {
+	content: "\e027";
+}
+
+/*clear cache please */
+

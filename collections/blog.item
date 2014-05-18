@@ -1,0 +1,81 @@
+<div class="article-wrapper">
+
+{.section item}
+
+<article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+
+  <!--SPECIAL CONTENT-->
+
+  {.section promotedBlock}
+    <div class="special-content">{@}</div> 
+  {.end}
+
+
+  <!--POST HEADER-->
+    
+  <header>
+    {.if title}<h1 class="entry-title" data-content-field="title">{.passthrough?}<a href="{sourceUrl}" target="_blank">{title}</a>{.or}<a href="{fullUrl}">{title}</a>{.end}</h1>{.end}
+    <div class="meta">
+      {.section author}<span class="author"><a href="{collection.fullUrl}?author={id}" rel="author">{displayName}</a></span>{.end}
+      <span class="date"><a href="{fullUrl}" rel="permalink"><time class="published" datetime="{addedOn|date %F}">{addedOn|date %B %e, %Y}</time></a></span>
+    </div>
+  </header>
+    
+  <!--POST BODY-->
+  
+
+  {.section body}<div class="body entry-content">{@}</div>{.end}
+
+              
+  <!--POST FOOTER-->
+    
+  <footer>
+    <div class="meta">
+
+      <div class="post-entry-injection">{postItemInjectCode}</div>
+
+      <div class="first meta-row">
+        {.section categories}<span class="categories"><span class="categories-title">In</span>{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+        {.section tags}<span class="tags"><span class="tags-title">Tags</span>{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+      </div>
+
+      <div class="second meta-row">
+        {@|like-button}
+        {@|social-button-inline}
+      </div>
+
+    </div>
+  </footer>
+    
+  
+  </article>
+{.end}
+
+
+<!--PAGINATION-->
+  
+{.section pagination}
+<nav class="item pagination">
+  <div class="content-wrapper">
+    <ul>
+      <li class="current"><a href="{collection.fullUrl}">{collection.title}</a></li>
+      {.section nextItem}<li class="next"><a href="{fullUrl}" title="{title}" id="nextLink">Older<i class="icon-chevron-right"></i></a></li>
+      {.or}<li class="next"><span title="Viewing the oldest post">Older<i class="icon-chevron-right"></i></span></li>{.end}
+      {.section prevItem}<li class="prev"><a href="{fullUrl}" title="{title}" id="prevLink"><i class="icon-chevron-left"></i>Newer</a></li>
+      {.or}<li class="prev"><span title="Viewing the latest post"><i class="icon-chevron-left"></i>Newer</span></li>{.end}
+    </ul>
+  </div>
+</nav>
+{.end}
+
+
+{.section item}
+{.comments?}
+  {@|comments}
+{.end}
+{.end}
+
+</div><!-- / article-wrapper -->
+
+<aside id="sidebar"><squarespace:block-field id="sidebarBlocks" /></aside>
+
