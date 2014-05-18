@@ -1,0 +1,295 @@
+
+/* cache busting x */
+
+// Dovetail Tweaks
+
+/* SUMMARY BLOCK STYLES
+---------------------------------------------------*/
+
+// tweak: { "category" : "Summary Block", "title" : "Summary Block Title Font", "type" : "font", "target" : ".summary-header-text, .summary-title", "showOnlyWhenPresent" : ".summary-title, .summary-title-link" }
+.summary-heading-font {
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+// tweak: { "category" : "Summary Block", "title" : "Summary Block Title Color", "type" : "color", "target" : ".summary-header-text, .summary-title", "showOnlyWhenPresent" : ".summary-title, .summary-title-link" }
+@summaryHeadingColor: #666;
+
+
+
+/* AUTO-CATEGORIZED - DO NOT ADD NEW TWEAKS HERE
+---------------------------------------------------*/
+
+// tweak: { "type" : "color", "title" : "Site Background", "target" : "body" }
+@background: #f2f2f2;
+
+// tweak: { "type" : "image", "title" : "Site Background Image", "target" : "body" }
+.bg-image {
+  background-image: url("/assets/concrete-texture.png");
+  background-position: top left;
+  background-size: auto;
+  background-attachment: scroll;
+  background-repeat: repeat;
+}
+
+// tweak: { "type" : "color", "title" : "Canvas Background", "target" : "#canvas" }
+@canvasBackground: #fff;
+
+// tweak: { "type" : "color", "title" : "Site Title Color", "target" : "#header, .site-title .logo" }
+@siteTitleColor: #222;
+
+// tweak: { "type" : "color", "title" : "Site Title (Hover) Color", "target" : "#header, .site-title .logo" }
+@siteTitleHoverColor: #444;
+
+// tweak: { "type" : "color", "title" : "Site Subtitle Color", "target" : "#header, .logo-subtitle, .site-tagline" }
+@subtitleColor: #ddd;
+
+// tweak: { "type" : "color", "title" : "Page Title Color", "target" : "#hero .page-title" }
+@pageTitleColor: #fff;
+
+// tweak: { "type" : "color", "title" : "Page Description Color", "target" : "#hero .page-description" }
+@pageDescColor: #f2f2f2;
+
+// tweak: { "type" : "color", "title" : "Page Title Background", "target" : "#hero .page-image .wrapper" }
+@titleBackground: transparent;
+
+// tweak: { "type" : "color", "title" : "Navigation Color", "target" : "#header, #siteNav a" }
+@navColor: #999;
+
+// tweak: { "type" : "color", "title" : "Navigation (Hover) Color", "target" : "#header, #siteNav a" }
+@navHoverColor: #111;
+
+// tweak: { "type" : "color", "title" : "Navigation (Active) Color", "target" : "#header, #siteNav a" }
+@navActiveColor: #111;
+
+// tweak: { "type" : "color", "title" : "Heading 1 Color", "target" : "#page h1, #footer h1" }
+@heading1Color: #222;
+
+// tweak: { "type" : "color", "title" : "Heading 2 Color", "target" : "#page h2, #footer h2" }
+@heading2Color: #222;
+
+// tweak: { "type" : "color", "title" : "Heading 3 Color", "target" : "#page h3, #footer h3" }
+@heading3Color: #222;
+
+// tweak: { "type" : "color", "title" : "Blockquote Color", "target" : "#page blockquote" }
+@blockquoteColor: #c23a00;
+
+// tweak: { "type" : "color", "title" : "Text Color", "target" : "#page, #footer" }
+@bodyTextColor: #777;
+
+// tweak: { "type" : "color", "title" : "Body Link Color", "target" : "#page a, #footer a" }
+@linkColor: #111;
+
+// tweak: { "type" : "color", "title" : "Body Link (Hover) Color", "target" : "#page, #footer, #page a, #footer a" }
+@linkHoverColor: #444;
+
+// tweak: { "type" : "color", "title" : "Blog Meta Color", "target" : ".collection-type-blog #page, .meta", "category" : "Blog Styles", "showOnlyWhenPresent" : ".collection-type-blog" }
+@metaDataColor: #333;
+
+// tweak: { "type" : "color", "title" : "Page Border Color", "target" : "#page, .page-divider" }
+@pageBorderColor: #e4e4e4;
+
+// tweak: { "type" : "color", "title" : "Social Icon Color", "target" : "#socialLinks" }
+@socialIconColor: #999999;
+
+
+// tweak: { "type" : "font", "title" : "Site Title", "target" : "#header, .logo" }
+.site-title-font {
+  font-family: 'crevil black', "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 4px;
+}
+@site-title-font-font-size: 32px;
+@site-title-font-letter-spacing: 4px;
+
+// tweak: { "type" : "font", "title" : "Site Subtitle", "target" : "#header, .logo-subtitle, .site-tagline" }
+.site-subtitle-font {
+  font-family: Actor, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4em;
+  text-transform: none;
+  text-decoration: none;
+}
+
+// tweak: { "type" : "font", "title" : "Navigation", "target" : "#header, #siteNav" }
+.nav-font {
+  font-family: Actor, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+@nav-font-font-size: 14px;
+
+// tweak: { "type" : "font", "title" : "Page Title", "target" : ".page-title", "loadAllVariants" : "true" }
+.page-title-font {
+  font-family: 'crevil black', "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4em;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0px;
+}
+
+// tweak: { "type" : "font", "title" : "Page Description", "target" : ".page-description", "loadAllVariants" : "true" }
+.page-description-font {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  text-transform: none;
+  text-decoration: none;
+}
+
+// tweak: { "type" : "font", "title" : "Heading 1", "target" : "#page h1:not(.logo)", "loadAllVariants" : "true" }
+.heading-1-font {
+  font-family: 'crevil black', "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.3em;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+// tweak: { "type" : "font", "title" : "Heading 2", "target" : "#page h2, #footer h2", "loadAllVariants" : "true" }
+.heading-2-font {
+  font-family: 'crevil black', "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.2em;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+// tweak: { "type" : "font", "title" : "Heading 3", "target" : "#page h3, #footer h3", "loadAllVariants" : "true" }
+.heading-3-font {
+  font-family: 'crevil black', "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.2em;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+// tweak: { "type" : "font", "title" : "Blockquote", "target" : "#page blockquote" }
+.quote-font {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1.6em;
+  text-transform: none;
+  text-decoration: none;
+}
+
+// tweak: { "type" : "font", "title" : "Body Text", "target" : "#canvas, #page", "loadAllVariants" : "true" }
+.body-font {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  text-transform: none;
+  text-decoration: none;
+}
+
+// tweak: { "type" : "font", "title" : "Body Links", "target" : "#canvas, #page a" }
+.body-link-font {
+  font-family: inherit;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+}
+
+
+// tweak: { "type" : "value", "title" : "Site Width", "min" : 600, "max" : 1440, "step" : 10, "target" : "#canvas", "property" : "width" }
+@siteWidth: 1140px;
+
+// tweak: { "type" : "value", "title" : "Page Description Width", "min" : 0, "max" : 100, "step" : 5, "target" : "#hero .page-image .wrapper", "property" : "width" }
+@pageDescWidth: 50%;
+
+// tweak: { "type" : "value", "title" : "Canvas Padding", "min" : 20, "max" : 100, "step" : 5, "target" : "#canvas", "property" : [ "padding-top", "padding-right", "padding-bottom", "padding-left" ] }
+@outerPadding: 60px;
+
+// tweak: { "type" : "value", "title" : "Navigation Link Spacing", "min" : 10, "max" : 100, "target" : "#header, #siteNav nav li + li a" }
+@navPadding: 30px;
+
+// tweak: { "type" : "value", "title" : "Header Padding", "min" : 0, "max" : 100, "target" : "#header", "property" : "margin-bottom" }
+@headerPadding: 60px;
+
+// tweak: { "type" : "value", "title" : "Page Padding", "min" : 0, "max" : 100, "target" : "#canvas", "property" : ["margin-top", "margin-bottom"] }
+@pagePadding: 60px;
+
+// tweak: { "type" : "value", "title" : "Page Banner Height", "min" : 0, "max" : 640, "target" : "#hero .page-image", "property" : "height" }
+@pageBannerHeight: 450px;
+
+// tweak: { "type" : "value", "title" : "Footer Padding", "min" : 0, "max" : 100, "target" : "#footer", "property" : "margin-top" }
+@footerPadding: 60px;
+
+// tweak: { "type" : "value", "title" : "Logo Height", "min" : 0, "max" : 300, "target" : ".logo-image .logo", "property" : "height" }
+@logoSize: 100px;
+
+// tweak: { "type" : "value", "title" : "Blog Post Spacing", "min" : 0, "max" : 200, "target" : ".page-divider", "property" : "height", "category" : "Blog Styles", "showOnlyWhenPresent" : ".collection-type-blog" }
+@postPadding: 80px;
+
+// tweak: { "type" : "value", "title" : "Blog Sidebar Width", "min" : 100, "max" : 600, "step" : 5, "target" : ".collection-type-blog #sidebar", "property" : "width", "category" : "Blog Styles", "showOnlyWhenPresent" : ".collection-type-blog.blog-sidebar-right, .collection-type-blog.blog-sidebar-left" }
+@blogSidebarWidth: 240px;
+
+//tweak: { "type" : "value", "title" : "Social Icon Size", "min" : 16, "max" : 48, "step" : 1, "target" : "#socialLinks" }
+@socialIconSize: 24px;
+
+// tweak: { "type" : "dropdown", "title" : "Header Alignment", "options" : [ "Right", "Center", "Left" ], "default" : "Left", "target" : "#header" }
+
+// tweak: { "type" : "dropdown", "title" : "Footer Alignment", "options" : [ "Split", "Center" ], "default" : "Split", "target" : "#footer" }
+
+// tweak: { "type" : "dropdown", "title" : "Blog Sidebar", "options" : [ "Right", "Left", "None" ], "default" : "Right", "target" : ".collection-type-blog #sidebar", "category" : "Blog Styles", "showOnlyWhenPresent" : ".collection-type-blog" }
+
+// tweak: { "type" : "dropdown", "title" : "Page Borders", "options" : [ "Thick", "Thin", "None" ], "default" : "Thin", "target" : ".page-divider, .pagination" }
+
+// tweak: { "type" : "dropdown", "title" : "Social Icons", "options" : [ "Show", "Only Text", "Hide" ], "default" : "Show", "target" : "#footer" }
+
+// tweak: { "type" : "checkbox", "title" : "Page Banner Full Width", "target" : "#hero", "active" : "true" }
+
+// tweak: { "type" : "checkbox", "title" : "Hide Page Banner", "target" : "#hero", "active" : "false" }
+
+// tweak: { "type" : "checkbox", "title" : "Hide Folder Page Navigation", "target" : "#folderNav", "active" : "false" }
+
+// tweak: { "type" : "checkbox", "title" : "Hide Page Title", "target" : ".page-title", "active" : "false" }
+
+// tweak: { "type" : "checkbox", "title" : "Hide Blog Author", "target" : ".meta .author", "active" : "true", "category" : "Blog Styles", "showOnlyWhenPresent" : ".collection-type-blog" }
+
+// tweak: { "type" : "checkbox", "title" : "Show Site Info Icon", "active" : "false" }
+
+h2 {
+	font-family: 'crevil black'!important;
+	text-shadow: 1px 1px  2px RGBA(0, 0, 0, 0.3);
+	font-weight:bold;
+
+}
+
+.nav-font {
+	font-family: 'crevil black'!important;
+	text-shadow 1px 1px 0.5 RGBA(0, 0, 0, 0.3);
+
+}
