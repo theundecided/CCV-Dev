@@ -7,7 +7,7 @@ h2 {
 
 }
 
-.nav-font {
+#siteNav {
 	font-family: 'crevil black'!important;
 	text-shadow: 1px 1px 0.5 RGBA(0, 0, 0, 0.3);
 	font-size: large !important;
