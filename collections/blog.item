@@ -1,93 +1,81 @@
+<div class="article-wrapper">
+
 {.section item}
+
 <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
 
+  <!--SPECIAL CONTENT-->
+
+  {.section promotedBlock}
+    <div class="special-content">{@}</div> 
+  {.end}
+
+
   <!--POST HEADER-->
+    
   <header>
-    <div class="date">
-      <time class="published" datetime="{addedOn|date %F}">
-        {addedOn|date %B %e, %Y}
-      </time>
+    {.if title}<h1 class="entry-title" data-content-field="title">{.passthrough?}<a href="{sourceUrl}" target="_blank">{title}</a>{.or}<a href="{fullUrl}">{title}</a>{.end}</h1>{.end}
+    <div class="meta">
+      {.section author}<span class="author"><a href="{collection.fullUrl}?author={id}" rel="author">{displayName}</a></span>{.end}
+      <span class="date"><a href="{fullUrl}" rel="permalink"><time class="published" datetime="{addedOn|date %F}">{addedOn|date %B %e, %Y}</time></a></span>
     </div>
-    {.if title}
-    <h1 class="entry-title">
-      {.passthrough?}
-        <a href="{sourceUrl}">{title} <span>&rarr;</span></a>
-      {.or}
-        <a href="{fullUrl}">{title}</a>
-      {.end}
-    </h1>
-    {.end}
-    <p class="author-categories"><span class="blog-author">{.section author}by <a href="{collection.fullUrl}?author={id}">{displayName}</a>{.end}</span>{.section categories}<span class="categories"> in {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}</p>
   </header>
+    
+  <!--POST BODY-->
+  
 
-  <hr class="short-line" />
+  {.section body}<div class="body entry-content">{@}</div>{.end}
 
-  <div class="content-area">
-    <!--SPECIAL CONTENT-->
-    {.section promotedBlock}
-      <div class="special-content">
-       {@}
-      </div>
-    {.end}
-
-    <!--POST BODY-->
-    <div class="body entry-content">
-      {.section promotedBlock}
-        <div class="special-content-off">
-         {@}
-        </div>
-      {.end}
-    	{.section body}{@}{.end}
-      {.passthrough?}{.or}{.section sourceUrl}<div class="post-source">Source: <a href="{sourceUrl}" target="_blank">{sourceUrl|truncate 42}</a></div>{.end}{.end}
-      <div class="sqs-post-entry">{postItemInjectCode}</div>
-    </div>
-  </div>
-
+              
   <!--POST FOOTER-->
-    <footer>
-      <div class="">
-        <div class="comment-share-like">
-          
-          {.comments?}
-            {.disqus?}
-              {@|comment-link}
-            {.or}
-              {.section publicCommentCount}<a href="{fullUrl}#comments-{id}" class="comment-link">
-                {@} Comment{@|pluralize}</a>
-              {.or}<a href="{fullUrl}#comments" class="comment-link">Comment</a>
-              {.end}
-            {.end}
-          {.end}
-          
-          {@|social-button-inline}
+    
+  <footer>
+    <div class="meta">
 
-          {@|like-button}
+      <div class="post-entry-injection">{postItemInjectCode}</div>
 
-        </div>
-
-        {.section tags}<div class="tags"><p><em>TAGS:</em> {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</p></div>{.end}
-
+      <div class="first meta-row">
+        {.section categories}<span class="categories"><span class="categories-title">In</span>{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+        {.section tags}<span class="tags"><span class="tags-title">Tags</span>{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
       </div>
-    </footer>
 
-  <hr class="short-line" />
+      <div class="second meta-row">
+        {@|like-button}
+        {@|social-button-inline}
+      </div>
 
-</article>
+    </div>
+  </footer>
+    
+  
+  </article>
 {.end}
 
+
 <!--PAGINATION-->
+  
 {.section pagination}
-<nav class="pagination">
-  <ul>
-    <li class="previous">{.section prevItem}<a href="{fullUrl}"><span class="fs1 arrow-prev" aria-hidden="true" data-icon="&#x0022;"></span>Previous Post<br /><span class="page-title">{title|truncate 24}</span></a>{.or}&nbsp;{.end}</li>
-    <li class="next">{.section nextItem}<a href="{fullUrl}">Next Post<br /><span class="page-title">{title|truncate 24}</span><span class="fs1 arrow-next" aria-hidden="true" data-icon="&#x0021;"></span></a>{.or}&nbsp;{.end}</li>
-  </ul>
+<nav class="item pagination">
+  <div class="content-wrapper">
+    <ul>
+      <li class="current"><a href="{collection.fullUrl}">{collection.title}</a></li>
+      {.section nextItem}<li class="next"><a href="{fullUrl}" title="{title}" id="nextLink">Older<i class="icon-chevron-right"></i></a></li>
+      {.or}<li class="next"><span title="Viewing the oldest post">Older<i class="icon-chevron-right"></i></span></li>{.end}
+      {.section prevItem}<li class="prev"><a href="{fullUrl}" title="{title}" id="prevLink"><i class="icon-chevron-left"></i>Newer</a></li>
+      {.or}<li class="prev"><span title="Viewing the latest post"><i class="icon-chevron-left"></i>Newer</span></li>{.end}
+    </ul>
+  </div>
 </nav>
 {.end}
 
-<!-- COMMENTS -->
-{.section website}
-<section id="comments-{id}" class="comments-wrapper">
+
+{.section item}
+{.comments?}
   {@|comments}
-</section>
 {.end}
+{.end}
+
+</div><!-- / article-wrapper -->
+
+<aside id="sidebar"><squarespace:block-field id="sidebarBlocks" /></aside>
+

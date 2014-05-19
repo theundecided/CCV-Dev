@@ -1,92 +1,110 @@
 <!doctype html>
-<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
-<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
-
+<html>
   <head>
-    {.if template.mobileStylesEnabled}<meta name="viewport" content="width=device-width">{.end}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {.if template.mobileStylesEnabled}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {.end}
     {squarespace-headers}
+    <squarespace:script src="site.js" />
+	<squarespace:script src="/assets/calendar/lib/jquery.min.js">
+	<squarespace:script src="/assets/calendar/lib/moment.min.js">
+	<squarespace:script src="/assets/calendar/fullcalendar/fullcalendar.js">
   </head>
 
-  <body class="{squarespace.page-classes} {.if authenticatedAccount}logged-in{.or}logged-out{.end}" id="{squarespace.page-id}">
+  <body class="{squarespace.page-classes}{.section website}{.section logoImageUrl} logo-image{.or} site-title{.end}{.end}" id="{squarespace.page-id}">
+
     <div id="canvasWrapper">
-
-      <div id="headerWrapper">
-        <!-- ghost version of the nav. pushes header down the correct amount for the real fixed position version of the header -->
-        <div id="navWrapperGhost">
-          <div id="topNavGhost">
-            {.section website}
-            {.if socialAccounts}
-              <div id="sqs-header-social-ghost">
-                {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end} class="social-{serviceName}"></a>{.end}
-              </div>
-              <a href="#sqs-header-social-ghost" id="mobile-show-social-ghost"></a>
-              {.end}
-            {.end}
-            <div class="sqs-search-ui-button" boost_title="10">
-              <span class="title">Search</span>
-            </div>
-
-            <div id="navGhost"><squarespace:navigation navigationId="mainNav" template="navigation" />
-            <a href="#closeNavGhost" id="mobile-close-nav-ghost">Close</a></div>
-            <a href="#navGhost" id="mobile-show-nav-ghost">Menu</a>
-          </div>
-        </div>
-        <!-- /ghost nav -->
-
-        <!-- real/visible nav starts here -->
-        <div id="navWrapper">
-          <div id="topNav">
-          {.section website}
-            {.if socialAccounts}
-              <div id="sqs-header-social">
-                {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end} class="social-{serviceName}"></a>{.end}
-              </div>
-              <a href="#sqs-header-social" id="mobile-show-social"></a>
-              {.end}
-            {.end}
-            <div class="sqs-search-ui-button" boost_title="10">
-              <span class="title">Search</span>
-            </div>
-            <squarespace:navigation navigationId="mainNav" template="mobile-navigation" />
-          </div>
-        </div>
+    	<div id="canvas">
 
     		<header id="header">
-          <div id="logo" data-content-field="site-title">
-          {.section website}
-            <h1 class="logo{.section logoImageUrl} image{.or} site-title{.end}">
-              <a href="/">
-                {.if logoImageUrl}
-                  <img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" />
-                {.or}
-                  {siteTitle}
-                {.end}
-              </a>
-            </h1>
-            {.section siteTagLine}
-            <p class="logo-subtitle">{@}</p>
+    			<div id="logo" data-content-field="site-title">
+            {.section website}
+              <h1 class="logo"><a href="/">{.if logoImageUrl}<img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" />{.or}{siteTitle}{.end}</a></h1>
+              {.section siteTagLine}<div class="tagline">{@}</div>{.end}
             {.end}
-          {.end}
           </div>
+          <squarespace:navigation navigationId="mainNav" template="navigation" />
     		</header>
-  		</div> <!-- /#headerWrapper -->
+        <script>
+          Y.use('squarespace-ui-base', function(Y) {
+            Y.one("h1.logo").plug(Y.Squarespace.TextShrink, {
+              parentEl: Y.one('#header')
+            });
+          });
+        </script>
 
-  		<div id="contentWrapper" role="main">
-    		<section id="page">
-    			 {squarespace.main-content}
+        {.section collection}
+          {.section mainImage}
+          <div id="hero"{.if collection.folder} class="folder-page"{.end}>
+            <div class="page-image" data-content-field="page-settings">
+              <div class="image-wrapper content-fill"><img {@|image-meta} /></div>
+              <div class="wrapper">
+                <p class="page-title">{collection.title}</p>
+                {.if collection.description}<div class="page-description">{collection.description}</div>{.end}
+              </div>
+            </div>
+          </div>
+          {.or}
+          <div class="page-divider"></div>
+          <div id="top">
+            {.section title}<p class="page-title">{title}</p>{.end}
+            {.section description}<div class="page-description"><div class="wrapper">{description}</div></div>{.end}
+          </div>
+          {.end}
+          <squarespace:folder-navigation template="foldernav" />
+        {.end}
+
+    		<section id="page" role="main">
+    		  {squarespace.main-content}
     		</section>
-  		</div>
 
-      <footer id="pageFooter">
-        <div class="sqs-cart-dropzone"></div>
-        <squarespace:block-field id="footerBlock" columns="12" />
-        {squarespace-footers}
-      </footer>
+        <div class="page-divider"></div>
 
-    </div> <!-- /#canvasWrapper -->
+        <footer id="footer">
+
+        {.section website}
+          {.if socialAccounts}
+          <div id="socialLinks" class="social-links">
+            {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end}><i class="social-{serviceName}"></i><span class="service-label">{serviceName}</span></a>{.end}
+          </div>
+          {.end}
+        {.end}
+
+          <squarespace:navigation navigationId="footNav" template="footer-navigation" />
+          <squarespace:block-field id="footerBlock" columns="12" />
+
+        </footer>
+
+        {.section website}
+        <div id="details" class="info-card" data-content-field="page-settings">
+          <div id="info-open"><a href="#info-content" class="icon-info-circle"></a></div>
+          <div id="info-content">
+            <div id="info-close"><a href="#canvas" class="icon-close"></a></div>
+            <div id="info-data">
+              {.section siteTitle}<h1 class="logo site-title">{siteTitle}</h1>{.end}
+              {.section siteTagLine}<h3 class="site-tagline">{siteTagLine}</h3>{.end}
+              {.section siteDescription}{siteDescription}{.end}
+              <div class="page-divider"></div>
+              {.section location}
+              <p class="location">{.if addressTitle}<strong>{addressTitle}</strong> | {.end}{.if addressLine1}{addressLine1}{.end}{.if addressLine2}, {addressLine2}{.end}{.if addressCountry}, {addressCountry}{.end}</p>
+          		<figure class="map-image"><a href="//maps.google.com/maps?q={markerLat},{markerLng}" target="_blank" title="View map in new window"><img src="//maps.googleapis.com/maps/api/staticmap?markers=color:white|{markerLat},{markerLng}&size=400x200&scale=2&zoom={mapZoom}&style=visibility:simplified|saturation:-100|gamma:0.5&sensor=false"></a></figure>
+              {.end}
+              <div class="page-divider"></div>
+              {.if socialAccounts}
+              <span id="socialLinks" class="social-links">
+                {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end}><i class="social-{serviceName}"></i><span class="service-label">{serviceName}</span></a>{.end}
+              </span>
+              {.end}
+            </div>
+          </div>
+        </div>
+        {.end}
+
+    	</div><!-- / #canvas -->
+    </div><!-- / #canvasWrapper -->
+
+    {squarespace-footers}
 
   {.if template.mobileStylesEnabled}{.or}
     <script>

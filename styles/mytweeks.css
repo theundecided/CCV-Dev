@@ -1,0 +1,23 @@
+/*---My CSS Tweeks---*/
+
+h2 {
+	font-family: 'crevil black'!important;
+	text-shadow: 1px 1px  2px RGBA(0, 0, 0, 0.3);
+	font-weight:bold;
+
+}
+
+.nav-font {
+	-webkit-font-smoothing: antialiased;
+	font-family: 'crevil black'!important;
+	text-shadow: 1px 1px 0.5px RGBA(0, 0, 0, 0.3);
+	font-size: large !important;
+	font-style: normal !important;
+	text-shadow: 1px 1px 2px RGBA(0, 0, 0, 0.3);
+	text-transform:lowercase !important;
+
+}
+
+/*.folderNav {
+	font-size:80%!important;
+}*/

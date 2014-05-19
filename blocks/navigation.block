@@ -1,47 +1,88 @@
+<div id="topNav"  data-content-field="navigation-navigation">
 
+  <nav class="main-nav dropdown-hover">
+    <ul id="siteNav">
+      <li class="toggle"><a href="#mobileNav" id="mobile-show-nav" class="icon-list"></a></li>
+      {.repeated section items}
 
-<nav class="main-nav dropdown-hover" id="mainNavigation">
-  <ul>
-  {.if items}
-    {.repeated section items}
+          <li class="{.section collection}{typeLabel}-collection{.end}{.section active} active-link{.end}{.if collection.folder} folder{.end}{.if folderActive} active-folder{.end}{.section externalLink} external-link{.end}">
 
-      <li class="{collection.typeLabel}-collection{.section active} active-link{.end}{.if collection.folder} folder{.end}{.if folderActive} active-link active-folder{.end}{.section externalLink} external-link{.end}">
+          {.folder?}
 
-        {.folder?}
-
-          <a>{collection.navigationTitle}</a>
-          <div class="subnav">
-            <ul>
-              {.repeated section items}
-                {.collection?}
-                  <li class="{collection.typeLabel}-collection{.section active} active-link{.end}">
-                    <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
-                  </li>
+            <a aria-haspopup="true" href="#" onClick="return false;">{collection.navigationTitle}</a>
+            <div class="subnav">
+              <ul>
+                {.repeated section items}
+                  {.collection?}
+                    <li class="{collection.typeLabel}-collection{.section active} active-link{.end}">
+                      <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
+                    </li>
+                  {.end}
+                  {.section externalLink}
+                    <li class="external-link">
+                      <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                    </li>
+                  {.end}
                 {.end}
-                {.section externalLink}
-                  <li class="external-link">
-                    <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
-                  </li>
-                {.end}
+              </ul>
+            </div>
+
+          {.or}
+
+            {.section collection}
+              <a href="{fullUrl}">{navigationTitle}</a>
+            {.end}
+
+            {.section externalLink}
+              <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+            {.end}
+
+          {.end}
+
+          </li>
+
+      {.end}
+    </ul>
+
+    <ul id="mobileNav">
+      <li class="toggle"><a href="#canvas" id="mobile-close-nav" class="icon-list"></a></li>
+      {.repeated section items}
+
+          {.folder?}
+
+            {.repeated section items}
+              {.collection?}
+                <li class="{collection.typeLabel}-collection{.section active} active-link{.end}">
+                  <a href="{collection.fullUrl}" class="icon-">{collection.navigationTitle}</a>
+                </li>
               {.end}
-            </ul>
-          </div>
+              {.section externalLink}
+                <li class="external-link">
+                  <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+                </li>
+              {.end}
+            {.end}
 
-        {.or}
+          {.or}
 
-          {.section collection}
-            <a href="{fullUrl}">{navigationTitle}</a>
+            <li class="{.section collection}{typeLabel}-collection{.end}{.section active} active-link{.end}{.if collection.folder} folder{.end}{.if folderActive} active-link active-folder{.end}{.section externalLink} external-link{.end}">
+
+            {.section collection}
+              <a href="{fullUrl}">{navigationTitle}</a>
+            {.end}
+
+            {.section externalLink}
+              <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+            {.end}
+
+            </li>
+
           {.end}
 
-          {.section externalLink}
-            <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
-          {.end}
+      {.end}
+    </ul>
 
-        {.end}
+  </nav>
 
-      </li>
+</div>
 
-    {.end}
-  {.end}
-  </ul>
-</nav>

@@ -1,108 +1,92 @@
-{.section items}
-
 <div class="article-list hfeed">
 
-{.repeated section @}
+{.repeated section items}
 
-  <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+<article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+ 
+  <!--SPECIAL CONTENT-->
 
-    <!--POST HEADER-->
-    <header>
-      <div class="date">
-        {.if title}
-        <time class="published" datetime="{addedOn|date %F}">
-          {addedOn|date %B %e, %Y}
-        </time>
-        {.or}
-        <time class="published" datetime="{addedOn|date %F}">
-          <a href="{fullUrl}">{addedOn|date %B %e, %Y}</a>
-        </time>
-        {.end}
-      </div>
-      {.if title}
-      <h1 class="entry-title">
-        {.passthrough?}
-          <a href="{sourceUrl}">{title} <span>&rarr;</span></a>
-        {.or}
-          <a href="{fullUrl}">{title}</a>
-        {.end}
-      </h1>
-      {.end}
-      <p class="author-categories"><span class="blog-author">{.section author}by <a href="{collection.fullUrl}?author={id}">{displayName}</a>{.end}</span>{.section categories}<span class="categories"> in {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}</p>
-    </header>
-
-    <hr class="short-line" />
-
-    <div class="content-area">
-      <!--SPECIAL CONTENT-->
-      {.section promotedBlock}
-        <div class="special-content">
-         {@}
-        </div>
-      {.end}
+  {.section promotedBlock}
+    <div class="special-content">{@}</div> 
+  {.end}
 
 
-      <!--POST BODY-->
-      <div class="body entry-content">
-        {.section promotedBlock}
-          <div class="special-content-off">
-           {@}
-          </div>
-        {.end}
-
-      {.excerpt?}
-        {excerpt}
-        <a class="read-more" href="{fullUrl}">Read More</a>
-      {.or}
-        {.section body}{@}{.end}
-        {.passthrough?}{.or}{.section sourceUrl}<div class="post-source">Source: <a href="{sourceUrl}" target="_blank">{sourceUrl|truncate 42}</a></div>{.end}{.end}
-      {.end}
-        <div class="sqs-post-entry">{postItemInjectCode}</div>
-      </div>
+  <!--POST HEADER-->
+    
+  <header>
+    {.if title}<h1 class="entry-title" data-content-field="title">{.passthrough?}<a href="{sourceUrl}" target="_blank">{title}</a>{.or}<a href="{fullUrl}">{title}</a>{.end}</h1>{.end}
+    <div class="meta">
+      {.section author}<span class="author"><a href="{collection.fullUrl}?author={id}" rel="author">{displayName}</a></span>{.end}
+      <span class="date"><a href="{fullUrl}" rel="permalink"><time class="published" datetime="{addedOn|date %F}">{addedOn|date %B %e, %Y}</time></a></span>
     </div>
+  </header>    
+    
+  <!--POST BODY-->
+  
+  {.excerpt?}
+    <div class="body entry-content">{excerpt} <a class="read-more" href="{fullUrl}">Read More</a></div>
+  {.or}
+    {.section body}<div class="body entry-content">{@}</div>{.end}
+  {.end}
 
-    <!--POST FOOTER-->
-    <footer>
-      <div class="">
-        <div class="comment-share-like">
-          
-          {.comments?}
-            {.if websiteSettings.disqusShortname}
-              {@|comment-link}
+              
+  <!--POST FOOTER-->
+    
+  <footer>
+    <div class="meta">
+
+      <div class="post-entry-injection">{postItemInjectCode}</div>
+
+      <div class="first meta-row">
+        {.section categories}<span class="categories"><span class="categories-title">In</span> {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+        {.section tags}<span class="tags"><span class="tags-title">Tags</span> {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+      </div>
+
+      <div class="second meta-row">
+        {@|like-button}
+        {.comments?}
+          {.if websiteSettings.disqusShortname}
+            <span class="comments"><a href="{fullUrl}#comments-{id}"class="comment-link">{@|comment-link}</a></span>
+          {.or}
+            {.section publicCommentCount}
+              <span class="comments"><a href="{fullUrl}#comments-{id}">{@} Comment{@|pluralize}</a></span>
             {.or}
-              {.section publicCommentCount}<a href="{fullUrl}#comments-{id}" class="comment-link">
-                {@} Comment{@|pluralize}</a>
-              {.or}<a href="{fullUrl}#comments" class="comment-link">Comment</a>
-              {.end}
+              <span class="comments"><a href="{fullUrl}#comments-{id}">Comment</a></span>
             {.end}
           {.end}
-
-          {@|social-button-inline}
-
-          {@|like-button}
-
-        </div>
-
-        {.section tags}<div class="tags"><p><em>TAGS:</em> {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</p></div>{.end}
-
+        {.end}
+        {@|social-button-inline}
       </div>
-    </footer>
 
-    <hr class="short-line" />
-
+    </div>
+  </footer>
+    
+  
   </article>
+{.alternates with}
+  <div class="post-divider"></div>
 {.end}
 
-{.end}
 
 <!--PAGINATION-->
+  
 {.section pagination}
-<nav class="pagination">
-  <ul>
-    <li class="previous">{.if pagination.prevPage}<a href="{prevPageUrl}"><span class="fs1 arrow-prev" aria-hidden="true" data-icon="&#x0022;"></span><span class="page-text">Newer</span></a>{.or}<span class="fs1 arrow-prev" aria-hidden="true" data-icon="&#x0022;"></span><span class="page-text">Newer</span>{.end}</li>
-    <li class="next">{.if pagination.nextPage}<a href="{nextPageUrl}" class="arrow-chevron-right">Older<span class="fs1 arrow-next" aria-hidden="true" data-icon="&#x0021;"></span></a>{.or}Older<span class="fs1 arrow-next" aria-hidden="true" data-icon="&#x0021;"></span>{.end}</li>
-  </ul>
+<nav class="page pagination">
+  <div class="content-wrapper">
+    <ul>
+      <!-- <li class="current">Page {pagination.currentPage} of {pagination.totalPages}</li> -->
+      <li class="current"><a href="{collection.fullUrl}">{collection.title}</a></li>
+      {.if pagination.nextPage}<li class="next"><a href="{nextPageUrl}" id="nextLink">Older<i class="icon-chevron-right"></i></a></li>
+      {.or}<li class="next"><span title="Viewing the last page">Older<i class="icon-chevron-right"></i></span></li>{.end}
+      {.if pagination.prevPage}<li class="prev"><a href="{prevPageUrl}" id="prevLink"><i class="icon-chevron-left"></i>Newer</a></li>
+      {.or}<li class="prev"><span title="Viewing the first page"><i class="icon-chevron-left"></i>Newer</span></li>{.end}
+    </ul>
+  </div>
 </nav>
 {.end}
+
 </div>
+
+
+<aside id="sidebar"><squarespace:block-field id="sidebarBlocks" /></aside>
 

@@ -1,0 +1,57 @@
+/*------------------CREVIL BLACK FAMILY-------------------------*/
+
+/*Crevil Black*/
+@font-face {
+    font-family: 'crevil black';
+    src: url('/assets/webfonts/crevil_black-webfont.eot');
+    src: url('/assets/webfonts/crevil_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/crevil_black-webfont.woff') format('woff'),
+         url('/assets/webfonts/crevil_black-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/crevil_black-webfont.svg#crevil_blackregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/*Crevil Black Bold*/
+@font-face {
+    font-family: 'crevil black';
+    src: url('/assets/webfonts/crevilblackbold-webfont.eot');
+    src: url('/assets/webfonts/crevilblackbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/crevilblackbold-webfont.woff') format('woff'),
+         url('/assets/webfonts/crevilblackbold-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/crevilblackbold-webfont.svg#crevil_blackbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+/*Creil Black Bold Italic*/
+@font-face {
+    font-family: 'crevil black';
+    src: url('/assets/webfonts/crevilblackboldit-webfont.eot');
+    src: url('/assets/webfonts/crevilblackboldit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/crevilblackboldit-webfont.woff') format('woff'),
+         url('/assets/webfonts/crevilblackboldit-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/crevilblackboldit-webfont.svg#crevil_blackbold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+
+
+/*Crevil Black Italic-*/
+@font-face {
+    font-family: 'crevil black';
+    src: url('/assets/webfonts/crevilblackitalic-webfont.eot');
+    src: url('/assets/webfonts/crevilblackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/webfonts/crevilblackitalic-webfont.woff') format('woff'),
+         url('/assets/webfonts/crevilblackitalic-webfont.ttf') format('truetype'),
+         url('/assets/webfonts/crevilblackitalic-webfont.svg#crevil_blackitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
