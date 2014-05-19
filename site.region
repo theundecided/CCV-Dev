@@ -1,0 +1,115 @@
+<!doctype html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+
+  <head>
+    {.if template.mobileStylesEnabled}<meta name="viewport" content="width=device-width">{.end}
+    {squarespace-headers}
+  </head>
+
+  <body class="{squarespace.page-classes} {.if authenticatedAccount}logged-in{.or}logged-out{.end}" id="{squarespace.page-id}">
+    <div id="canvasWrapper">
+
+      <div id="headerWrapper">
+        <!-- ghost version of the nav. pushes header down the correct amount for the real fixed position version of the header -->
+        <div id="navWrapperGhost">
+          <div id="topNavGhost">
+            {.section website}
+            {.if socialAccounts}
+              <div id="sqs-header-social-ghost">
+                {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end} class="social-{serviceName}"></a>{.end}
+              </div>
+              <a href="#sqs-header-social-ghost" id="mobile-show-social-ghost"></a>
+              {.end}
+            {.end}
+            <div class="sqs-search-ui-button" boost_title="10">
+              <span class="title">Search</span>
+            </div>
+
+            <div id="navGhost"><squarespace:navigation navigationId="mainNav" template="navigation" />
+            <a href="#closeNavGhost" id="mobile-close-nav-ghost">Close</a></div>
+            <a href="#navGhost" id="mobile-show-nav-ghost">Menu</a>
+          </div>
+        </div>
+        <!-- /ghost nav -->
+
+        <!-- real/visible nav starts here -->
+        <div id="navWrapper">
+          <div id="topNav">
+          {.section website}
+            {.if socialAccounts}
+              <div id="sqs-header-social">
+                {.repeated section socialAccounts}<a{.if profileUrl} href="{profileUrl}" target="_blank"{.or} title="{screenname}"{.end} class="social-{serviceName}"></a>{.end}
+              </div>
+              <a href="#sqs-header-social" id="mobile-show-social"></a>
+              {.end}
+            {.end}
+            <div class="sqs-search-ui-button" boost_title="10">
+              <span class="title">Search</span>
+            </div>
+            <squarespace:navigation navigationId="mainNav" template="mobile-navigation" />
+          </div>
+        </div>
+
+    		<header id="header">
+          <div id="logo" data-content-field="site-title">
+          {.section website}
+            <h1 class="logo{.section logoImageUrl} image{.or} site-title{.end}">
+              <a href="/">
+                {.if logoImageUrl}
+                  <img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" />
+                {.or}
+                  {siteTitle}
+                {.end}
+              </a>
+            </h1>
+            {.section siteTagLine}
+            <p class="logo-subtitle">{@}</p>
+            {.end}
+          {.end}
+          </div>
+    		</header>
+  		</div> <!-- /#headerWrapper -->
+
+  		<div id="contentWrapper" role="main">
+    		<section id="page">
+    			 {squarespace.main-content}
+    		</section>
+  		</div>
+
+      <footer id="pageFooter">
+        <div class="sqs-cart-dropzone"></div>
+        <squarespace:block-field id="footerBlock" columns="12" />
+        {squarespace-footers}
+      </footer>
+
+    </div> <!-- /#canvasWrapper -->
+
+  {.if template.mobileStylesEnabled}{.or}
+    <script>
+      Y.use('node', function() {
+        Y.on('domready', function() {
+          var move;
+          Y.all('.subnav a').each(function(a) {
+            a.on('touchstart', function() {
+              move = false;
+            });
+            a.on('touchmove', function() {
+              move = true;
+            });
+            a.on('touchend', function() {
+              if (move === false) {
+                window.location = a.getAttribute('href');
+              }
+            });
+          });
+        });
+      });
+    </script>
+  {.end}
+
+  </body>
+</html>

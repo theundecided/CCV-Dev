@@ -1,0 +1,1046 @@
+
+
+// MIXINS
+
+// Border Radius
+.border-radius (@a: 5px) {
+  -moz-border-radius: @arguments;
+  border-radius: @arguments;
+}
+
+
+@sqsGridNegateGutter: true;
+
+
+/*  COLORS & BACKGROUNDS  */
+
+body { background-color: @siteBackground;
+  color: @textColor;
+  #canvasWrapper {
+    background-color: @siteBackground; }
+  a, a:visited { color: @linkColor; .body-link;
+    -webkit-transition: color .2s linear;
+    -o-transition: color .2s linear;
+    -moz-transition: color .2s linear;
+    transition: color .2s linear;
+  }
+  a:hover {
+    color:@linkHoverColor; }
+  .main-nav {
+    a {
+      color:@navColor;
+    }
+    .active-link a {
+      text-decoration: none;
+      color: @navActiveColor; }
+    a:hover { color: @navHoverColor; }
+  }
+
+  h1, h2, h3, h4, .comment-count {
+    color: @headingColor;
+    a, a:visited {
+      color: @headingColor;
+      text-decoration: none;
+    }
+    a:hover {
+      color: @linkHoverColor;
+    }
+  }
+}
+
+
+
+/*  FONTS & VERTICAL GRID  */
+
+body, .sqs-layout .sqs-block.html-block {
+  .body-font;
+  h1, h2, h3, h4, h5, h6 {
+    .heading-font;
+    margin: 1.5em 0 0.5em;
+  }
+    h1.entry-title {
+      .entry-title-font;
+      color: @entryTitleColor;
+      line-height: 1.2em;
+      margin: 0;
+      padding: 0 0 10px;
+      text-align: center;
+      a, a:visited {
+        color: @entryTitleColor;
+      }
+    }
+  h2 {
+    .heading-font;
+    font-size: @heading-font-font-size*0.8;
+  }
+  h3 {
+    .heading-font;
+    font-size: @heading-font-font-size*0.6;
+  }
+  p {
+    .body-font;
+    margin: 0 0 1em;
+  }
+  blockquote {
+    .quote-font;
+    border: none;
+    margin: 30px 0;
+    padding: 0 7.5%;
+    text-align: center;
+  }
+
+  blockquote p {
+    .quote-font;
+    line-height:inherit;
+  }
+  .quote-block .quote {
+    font-size: 1em;
+    blockquote {
+      margin: 0;
+      .quote-font;
+      padding: 0;
+    }
+    span:first-child {
+      margin: 0 0 0 -0.3em;
+    }
+  }
+  .sqs-block.quote-block .sqs-block-content .source {
+    color: @headingColor;
+    font-size: @quote-font-font-size*0.75;
+    margin-top: 0.5em;
+    padding: 0;
+    text-align: center;
+  }
+  pre, ul, ol, dl {
+    .body-font;
+    margin: 2em 0;
+  }
+  .sqs-block-content ul li, .sqs-block-content ol li {
+    line-height: 1.25;
+    margin: 0 0 0.5em;
+  }
+  nav ul, nav ol {
+    margin: 0;
+    list-style-type: none;
+  }
+}
+
+
+// meta, share, like, add comment
+.collection-type-blog .date {
+  display: none;
+}
+.show-post-date .date {
+  display: block;
+}
+.date time {
+  .post-date;
+  margin: 5px 0;
+  display: block;
+  color:@metaColor;
+  text-align: center;
+}
+p.author-categories {
+  color: @metaColor;
+  font-size: @metaFontSize;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  a, a:visited {
+    color: @metaColor;
+  }
+  a:hover {
+    color: @linkHoverColor;
+  }
+}
+span.blog-author {
+  display: none;
+}
+.show-author-name span.blog-author {
+  display: inline-block;
+}
+.comment-share-like {
+  margin-top: 2em;
+  color: @cslColor;
+  text-align: center;
+  .sqs-simple-like .like-count, .ss-social-button, a.comment-link, a.comment-link:visited, .sqs-disqus-comment-link {
+    .csl-font;
+    color: @cslColor;
+    a, a:visited {
+      color: @cslColor;
+    }
+    a:hover {
+      color: @cslHoverColor;
+    }
+  }
+  a.comment-link:hover,
+  .sqs-disqus-comment-link:hover {
+    color: @cslColor;
+  }
+  .comment-link, .squarespace-social-buttons, .sqs-simple-like, .sqs-disqus-comment-link {
+    display: inline;
+    margin-right: 10px;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  a.comment-link,
+  .sqs-disqus-comment-link {
+    text-decoration: none;
+  }
+  a.comment-link, .squarespace-social-buttons, .sqs-disqus-comment-link {
+    .csl-font;
+    text-decoration: none;
+    &:after {
+      content:'•';
+      padding-left: 10px;
+    }
+    &:hover {
+      color: @cslHoverColor;
+    }
+    &:last-child:after {
+      content: '';
+      padding-left: 0;
+    }
+    &.empty {
+      display: none;
+    }
+  }
+
+
+/*  .sqs-simple-like {
+    a { text-decoration:none; }
+    &:before { content:'•'; padding-right:10px; .csl-font; }
+    &:hover { color:@cslHoverColor; }
+  }*/
+  .sqs-simple-like .like-count {
+    white-space:nowrap;
+    display: inline;
+    &:hover {
+      color: @cslHoverColor;
+    }
+  }
+  .sqs-simple-like .like-icon {
+    display: none;
+  }
+  .squarespace-social-buttons div {
+    display: inline;
+  }
+  .ss-social-list-wrapper, .ss-social-list-wrapper div {
+    display: block;
+    text-align: left;
+  }
+  .squarespace-social-buttons.inline-style .ss-social-button-icon {
+    display: none;
+  }
+}
+
+.tags, .categories, .location {
+  color: @metaColor;
+  .body-font;
+  font-size: @metaFontSize;
+  text-align: center;
+  p {
+    margin: 0.5em 0 0;
+    font-size: @metaFontSize;
+    em { font-style: normal;
+      font-size: @metaFontSize*0.8;
+      font-weight: bold;
+    }
+    a, a:visited {
+      color: @metaColor;
+      text-decoration: underline;
+      font-style: italic;
+    }
+    a:hover {
+      color: @linkHoverColor;
+    }
+  }
+}
+
+.sqs-simple-like.float {
+  display: none;
+}
+
+
+/* clear cache 2 */
+/*  LAYOUT (WIDTHS & PADDING)  */
+
+#canvasWrapper {
+  max-width: @siteWidth;
+  margin: 0 auto;
+  padding: 0 @outerPadding;
+  position: relative;
+}
+#contentWrapper {
+  padding: 70px @innerPadding 0;
+  } //sets extra-wide width for promoted images and also .collection-type-page width
+
+
+
+// HEADER
+
+#headerWrapper {
+  max-width: @siteWidth;
+}
+
+#header {
+  border-bottom: solid 1px @borderColor;
+  padding: (@headerPadding + 5px) 0 @headerPadding;
+  position: relative;
+  text-align: center;
+}
+.collection-type-page #header {
+  margin: 0;
+}
+
+#navWrapper {
+  background-color: @siteBackground;
+  left: 0;
+  margin: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  z-index: 6000;
+}
+.nav-position-fixed #navWrapper {
+  left: 0;
+  margin: 0 @outerPadding;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+#topNav {
+  max-width: @siteWidth;
+  background-color: @siteBackground;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 15px;
+  #nav {
+    color: @navColor;
+  }
+  .main-nav {
+    width: 50%;
+    margin: 35px auto 0;
+    ul {
+      text-align: center;
+      width: auto;
+      li {
+        .nav-font;
+        display: inline-block;
+        margin-right: 10px;
+        &:after {
+          content:'•';
+          padding-left: 10px;
+        }
+        a, a:visited {
+          text-decoration: none;
+          color: @navColor;
+        }
+        a:hover {
+          color: @navHoverColor;
+        }
+        &.active-link > a {
+          color: @navActiveColor;
+        }
+        &.folder {
+          cursor: pointer;
+          .subnav {
+            background-color: @siteBackground;
+            height: 0;
+            margin-left: -20px;
+            overflow: hidden;
+            position: absolute;
+            /*top: 1.4em;*/ /* not sure what this was doing, besides hosing the folder dropdowns -schai */
+            width: auto;
+            z-index: 1000;
+          }
+          ul {
+            border-bottom: solid 3px @borderColor;
+            margin: 0;
+            padding: 15px 20px 12px;
+            li {
+              display: inline-block;
+              line-height: 1;
+              margin-right: 10px;
+              position: relative;
+              &:last-child {
+                margin-right: 0;
+                &:after {
+                  content:'';
+                  padding-left: 0;
+                }
+              }
+            }
+          }
+          &:hover .subnav, .subnav:hover {
+            height:auto !important;
+          }
+        }
+      }
+      li:last-child {
+        margin-right: 0;
+        &:after {
+          content:'';
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  #mobile-show-nav, #mobile-close-nav {
+    .nav-font;
+    display:none;
+    font-size: 14px;
+    text-align: right;
+  }
+  #mobile-show-social {
+    border-radius: 50%;
+    border: solid 2px @linkColor;
+    display: none;
+    float: left;
+    height: 14px;
+    margin-top: 20px;
+    width: 14px;
+    &:hover {
+      border-color: @linkHoverColor;
+    }
+  }
+  .sqs-search-ui-button {
+    display: none;
+    color: @navColor;
+    float: right;
+    margin: 0;
+    padding: 0;
+    .title {
+      .nav-font;
+      padding: 3px 0 3px 25px;
+      border: none;
+      background-position: 0px 0px;
+      line-height: normal;
+      margin: 0;
+      opacity: 0.8;
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+
+/* Changed Cart pill position to Bottom so as to not cover the template-specific Search bar in Nav
+-------------------------------------------------*/
+.show-search {
+
+  #topNav .sqs-search-ui-button {
+    display:block;
+  }
+  .sqs-cart-dropzone{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9000;
+  }
+}
+
+.logged-in .sqs-cart-dropzone{
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+    z-index: 9000;
+  }
+
+  .logged-out .sqs-cart-dropzone{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9000;
+  }
+
+
+          // GHOST NAV, TO FIX HEIGHT PROBLEMS WITH FIXED POSITIONING AND FOLLOWING CONTENT
+        #navWrapperGhost {
+          display: none;
+        }
+        .nav-position-fixed {
+          #navWrapperGhost {
+            position: relative;
+            top: 0;
+            background-color: @siteBackground;
+            z-index: 99;
+            width: 100%;
+            visibility: hidden;
+            margin: 0 @outerPadding;
+            display: block;
+          }
+          #topNavGhost {
+            max-width: @siteWidth;
+            background-color: @siteBackground;
+            position: relative;
+            margin: 0 auto;
+            padding: 0 0 15px;
+            .main-nav {
+              width: 50%;
+              margin: 35px auto 0;
+              ul {
+                text-align: center;
+                width: auto;
+                li {
+                  .nav-font;
+                  display: inline-block;
+                  margin-right: 10px;
+                  &:after {
+                    content:'•';
+                    padding-left: 10px;
+                  }
+                  a, a:visited {
+                    text-decoration: none;
+                    color: @navColor;
+                  }
+                  a:hover {
+                    color: @navHoverColor;
+                  }
+                  &.active-link > a {
+                    color: @navActiveColor;
+                  }
+                  &.folder {
+                    cursor: pointer;
+                    .subnav {
+                      top: 1.4em;
+                      position: absolute;
+                      overflow: hidden;
+                      height: 0;
+                      z-index: 1000;
+                      width: auto;
+                      background-color: @siteBackground;
+                      margin-left: -20px;
+                      max-width: 50%;
+                    }
+                    ul {
+                      padding: 15px 20px 12px;
+                      margin: 0;
+                      border-bottom: solid 3px @borderColor;
+                      li {
+                        line-height: 1;
+                        display: inline-block;
+                        margin-right: 10px;
+                        position: relative;
+                        &:last-child {
+                          margin-right: 0;
+                          &:after {
+                            content:'';
+                            padding-left: 0;
+                          }
+                        }
+                      }
+                    }
+                    &:hover .subnav, .subnav:hover {
+                      height: auto !important;
+                    }
+                  }
+                }
+                li:last-child {
+                  margin-right: 0;
+                  &:after {
+                    content:'';
+                    padding-left: 0;
+                  }
+                }
+              }
+            }
+            #mobile-show-nav-ghost, #mobile-close-nav-ghost {
+              .nav-font;
+              display: none;
+              font-size: 14px;
+              text-align: right;
+            }
+            #mobile-show-social-ghost {
+              display: none;
+              width: 16px;
+              height: 16px;
+              float: left;
+              border-radius: 50%;
+              background-color: @socialIconColor;
+              margin-top: 20px;
+            }
+            .sqs-search-ui-button {
+              display: none;
+              float: right;
+              margin: -5px 0 0;
+              padding: 0;
+              .title {
+                .nav-font;
+                margin: 0;
+                opacity: 0.8;
+                padding: 0 0 5px 25px;
+                &:hover {
+                  opacity: 0.4;
+                }
+              }
+            }
+          }
+        }
+
+          .show-search #topNavGhost .sqs-search-ui-button {
+            display:block;
+          }
+
+#topNav, #topNavGhost {
+  border-bottom: solid 3px @borderColor;
+}
+
+// CONTENT
+
+.logo.site-title {
+  margin: 0;
+  padding: 0;
+  .site-title-font;
+  text-align: center;
+}
+.logo.site-title a {
+  color: @siteTitleColor;
+  &:hover {
+    color: @navHoverColor;
+  }
+}
+.logo.image {
+  display: inline-block;
+  line-height: 0;
+  margin: 5px 0 10px;
+  max-height: @logoSize;
+}
+.logo.image img {
+  max-height: @logoSize;
+  max-width: 100%;
+}
+.logo-subtitle {
+  .site-subtitle-font;
+  color: @subtitleColor;
+  margin: 10px 0 5px;
+}
+
+
+// PAGE
+
+#page {
+  position: relative;
+}
+
+#pageFooter {
+  border-top: solid 3px @borderColor;
+  padding: @footerPadding 8%;
+  margin: @postPadding 0 0;
+}
+  .collection-type-page #pageFooter {
+    margin: 30px 0 0;
+  }
+
+
+// give some room in edit mode
+.squarespace-editable {
+  padding-bottom: 100px;
+}
+
+/* pagination nav */
+
+nav.pagination {
+  clear: both;
+  margin: 30px 20%;
+  ul {
+    li {
+      .nav-font;
+      font-size: 12px;
+      height: 28px;
+      line-height: 1.8;
+      position: relative;
+      width: 47%;
+      .arrow-next {
+        position:absolute;
+        right: 0;
+        top: 0;
+        font-size: 28px;
+        line-height: 40px;
+      }
+      .arrow-prev {
+        font-size: 28px;
+        left: 0;
+        line-height: 40px;
+        position: absolute;
+        top: 0;
+      }
+      .page-title {
+        .body-font;
+        font-size: 12px;
+        color: @textColor;
+      }
+    }
+    li a, li a:visited {
+      text-decoration: none;
+      color: @linkColor;
+      display: inline-block;
+      width: 100%;
+      &:hover {
+        color: @linkHoverColor;
+      }
+     }
+    li.previous {
+      float: left;
+      color: fadeout(@metaColor, 70%);
+      margin-left: -40px;
+      text-align: left;
+      padding-left: 40px;
+    }
+    li.next {
+      float: right;
+      color: fadeout(@metaColor, 70%);
+      margin-right: -40px;
+      text-align: right;
+      padding-right: 40px;
+    }
+  }
+}
+
+// re-sets line-height so pagination text is vertically centered on blog.list
+.article-list {
+  nav.pagination {
+    ul {
+      li, li .arrow-next, li .arrow-prev {
+        line-height: 28px; z-index: 100000; }
+    }
+  }
+}
+
+/* Blog */
+.collection-type-blog {
+  .special-content {
+    display: none;
+  }
+  .special-content-off {
+    display: none;
+  }
+  article {
+    padding-top: 0;
+    &.hentry {
+      clear: both;
+      margin-bottom: @postPadding;
+    }
+    footer {
+      margin: 0 20%;
+    }
+    .post-source {
+      margin-top: 1em;
+    }
+    .special-content {
+      padding: 10px 0 0; }
+
+    .read-more {
+      display: block;
+    }
+    .entry-content {
+      margin: 0 20%;
+      padding-top: 15px;
+      text-align: left;
+    }
+    .sqs-link {
+      font-size: 1.5*@heading-font-font-size;
+      font-style: italic;
+      line-height: 1.3;
+      padding-top: 0;
+      text-align: center;
+    }
+    hr.short-line {
+      border-bottom: solid 1px @borderColor;
+      border: 0;
+      margin: 20px auto;
+      opacity: 0.5;
+      width: 125px;
+    }
+  }
+  &.show-promoted-blocks {
+    .special-content {
+      display: block;
+    }
+  }
+  &:not(.show-promoted-blocks) {
+    .special-content-off {
+      display: block;
+    }
+  }
+}
+
+
+/*Image Caption
+.image-block .image-caption {
+  background-color:transparent;
+  position:relative;
+  font-style:italic;
+  line-height:1.5!important;
+  color:@metaColor;
+  padding:10px 0 0;
+  margin-bottom:0;
+  visibility:visible;
+}*/
+
+body:not(.special-content) .image-block {
+  margin-bottom: 25px;
+}
+
+.special-content .image-block .image-block-outer-wrapper.layout-caption-below .image-caption-wrapper {
+
+      background-color: @siteBackground;
+      color: @textColor;
+      margin: -35px auto 0;
+      padding: 20px 30px 0;
+      position: relative;
+      text-align: center;
+      width: 44%;
+
+    &:after {
+      border-bottom: solid 1px @borderColor;
+      content: "";
+      display: block;
+      margin: 20px auto 15px;
+      opacity: 0.5;
+      width: 125px;
+    }
+    p {
+      font-style: italic;
+      font-size: 1.1*@body-font-font-size;
+      line-height: 1.5;
+    }
+}
+
+
+/* Quote posts */
+.special-content .quote-block .quote blockquote {
+  margin: 0;
+  .quote-font;
+  padding: 0;
+  span:first-child {
+    margin: 0 0 0 -0.3em;
+  }
+ }
+  .special-content .sqs-block.quote-block .sqs-block-content .source {
+    color: @headingColor;
+    font-size: @quote-font-font-size*0.9;
+    line-height: 1.4;
+    margin: 25px 0 0;
+    padding: 0;
+    text-align: center;
+  }
+
+
+
+/*  COMMENTS  */
+
+.collection-type-blog .comments-wrapper {
+  padding: 10px 0;
+  margin: 120px 20% 0;
+  clear: both;
+  text-align: left;
+  border-top: solid 1px @borderColor;
+  .controls {
+    font-size: 1em;
+  }
+}
+
+/* Border Line Tweak */
+
+.border-style-dotted {
+  #header {
+    border-bottom: dotted 1px @borderColor;
+  }
+  #topNav #nav .main-nav ul li.folder ul {
+    border-bottom: dotted 1px @borderColor;
+  }
+  #topNav, #topNavGhost {
+    border-bottom: dotted 1px @borderColor;
+  }
+  #pageFooter {
+    border-top: dotted 1px @borderColor;
+  }
+  &.collection-type-blog {
+    article {
+      hr.short-line {
+        border-bottom: dotted 1px @borderColor;
+      }
+    }
+    .comments-wrapper {
+      border-top: dotted 1px @borderColor;
+    }
+  }
+  .special-content .image-block .image-block-outer-wrapper.layout-caption-below .image-caption-wrapper {
+    &:after {
+      content:"";
+      width: 125px;
+      margin: 20px auto 15px;
+      border-bottom: dotted 1px @borderColor;
+      display: block;
+      opacity: 0.5;
+    }
+  }
+}
+.border-style-none {
+  #header {
+    border-bottom: none;
+  }
+  #topNav #nav .main-nav ul li.folder ul {
+    border-bottom-width: 0;
+  }
+  #topNav, #topNavGhost {
+    border-bottom: none;
+  }
+  #pageFooter {
+    border-top: none;
+  }
+  &.collection-type-blog {
+    article {
+      hr.short-line {
+        border-bottom: none;
+      }
+    }
+    .comments-wrapper {
+      border-top: none;
+    }
+  }
+  .special-content .image-block .image-block-outer-wrapper.layout-caption-below .image-caption-wrapper {
+    &:after {
+      border-bottom: none;
+    }
+  }
+}
+
+
+/*  ICOMOON SOCIAL FONT */
+
+@import 'social-icon-font';
+
+#sqs-header-social, #sqs-header-social-ghost {
+  display: none;
+}
+
+.show-social-icons #sqs-header-social, .show-social-icons #sqs-header-social-ghost {
+  float: left;
+  width: 20%;
+  z-index: 100;
+  margin: 0 0 -10px;
+  display: block;
+  a {
+    display: block;
+    width: @socialIconSize;
+    height: @socialIconSize;
+    float: left;
+    margin: 0 6px 6px 0;
+    color: @socialIconColor;
+    text-decoration: none;
+    &:before {
+      font-size: @socialIconSize;
+    }
+    &:hover {
+      color: @navHoverColor;
+    }
+  }
+}
+
+
+
+
+
+/*  ICOMOON ARROW FONT */
+
+@font-face {
+  font-family: 'ArrowsFont';
+  src: url('/assets/ArrowsFont.eot');
+  src: url('/assets/ArrowsFont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/ArrowsFont.svg#ArrowsFont') format('svg'),
+    url('/assets/ArrowsFont.woff') format('woff'),
+    url('/assets/ArrowsFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'ArrowsFont';
+  content: attr(data-icon);
+  speak: none;
+}
+
+
+
+
+/*  FLOAT FIXIN'  */
+
+// Loose floats, sink boats
+#header, #page, #footer, .main-nav, nav.pagination, article.hentry, #sqs-header-social, .comment-share-like {
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+// fixes IE7 float issues
+*:first-child+html #header, *:first-child+html #page, *:first-child+html #footer, *:first-child+html .main-nav, *:first-child+html nav.pagination, *:first-child+html #sqs-footer-social, *:first-child+html article.hentry, *:first-child+html #sqs-header-social { zoom:1; } /* IE7 */
+
+
+
+/*  EXTRAS - mostly overridding system styles... trying out what works  */
+
+
+/* Twitter */
+.twitter-block .tweet {
+  time.tweet-timestamp a {
+    font-size:@body-font-font-size;
+  }
+ }
+
+/* Forms */
+#page .form-wrapper {
+  .field-list .field {
+    margin-bottom: 2em;
+  }
+  .field-list .field .field-element {
+    .border-radius(0);
+    box-shadow: none;
+  }
+  .field-list .title {
+    font-size: 1em;
+  }
+  .field-list .caption {
+    font-size: 0.8em;
+  }
+}
+
+/* makes room for the tweakbar on the left side, if you have any position:fixed elements */
+.sqs-style-mode.nav-position-fixed #navWrapper {
+  left: 220px;
+}
+
+#navWrapper {
+  -webkit-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+
+/* SUMMARY BLOCK
+------------------------------------------------*/
+
+.summary-metadata-item {
+  color: fade(@textColor, 70%);
+  a, a:link, a:visited {
+    color: fade(@textColor, 70%);
+    &:hover {
+      color: @linkHoverColor;
+    }
+  }
+}
+
+
+// squarespace layout tweak to align with edges of inner-container (negates external padding)
+@sqsGridGutter:30px;
+

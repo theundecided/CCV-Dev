@@ -1,0 +1,120 @@
+
+<!-- === INLINE CSS === -->
+<!-- LESSCSS IS NOT WELCOME IN HERE -->
+
+<style type="text/css">
+
+  @import '/universal/template-read-me/read-me.css';
+
+  #read-me-page .rm-browser.mobile img {
+    border-top: none;
+    margin-top: 41px;
+    left: 40px;
+    position: relative;
+  }
+
+</style>
+
+
+<!-- === HTML === -->
+
+<section id="read-me-page">
+
+  <section class="rm-intro">
+    <center><h1>Boutique is an elegant and clean blog template with an abundance of white space to feature large images.</h1></center>
+  </section>
+
+  <section class="rm-full-image">
+      <h2>Page Border Options</h2>
+      <p>Boutique offers different border options to accent the blog. The template can be styled with solid borders, dotted borders, or no borders at all.</p>
+      <select class="simulate-tweak">
+        <option>Solid Borders</option>
+        <option>Dotted Borders</option>
+        <option>No Borders</option>
+      </select>
+    <div>
+      <img style="border: 1px solid #ddd" data-src="/assets/nav-solid.jpg" data-option-2="/assets/nav-dotted.jpg" data-option-3="/assets/nav-blank.jpg"/>
+    </div>
+  </section>
+
+  <section class="rm-browser">
+    <h2>Promoted Images</h2>
+    <p>High-resolution images placed at the very top of every blog post will be promoted. Promoted images will appear larger as they occupy the site width rather than the content width. All other images in the blog post will be confined to the content width.</p>
+    <div data-url="http://boutique-demo.squarespace.com">
+      <span class="rm-highlight" data-top="50%" data-left="50%" data-right="50%">Promoted Image</span>
+      <span class="rm-highlight" data-top="20%" data-left="18%" data-right="17%">Site Width</span>
+      <span class="rm-highlight" data-top="93%" data-left="31%" data-right="31%">Content Width</span>
+      <img data-src="/assets/promoted-image.jpg" />
+    </div>
+  </section>
+
+  <section class="rm-browser" style="margin-top: -60px">
+     <div data-url="http://boutique-demo.squarespace.com">
+      <span class="rm-highlight" data-top="55%" data-left="50%" data-right="50%" style="white-space: nowrap">Normal Image</span>
+      <img data-src="/assets/normal-image.jpg" />
+    </div>
+  </section>
+
+    <section class="rm-browser">
+    <h2>Navigation Options</h2>
+    <p>The navigation in Boutique has the option of being fixed to the top of the site even after scrolling, so that links are always accessible. This can be turned on in the Style Editor.</p>
+    <p>Additional options can be added to the navigation from the Style Editor. By clicking Show Search, a search button will automatically appear on the right end of the fixed navigation. By clicking Show Social Icons, all linked social accounts will appear as icons on the left end of the navigation. Social links include Dribbble, Facebook, Flickr, Foursquare, Gowalla, Google+, Instagram, LinkedIn, Rdio, Spotify, Tumblr, Twitter, Vimeo and Youtube. ​Icons can be styled to appear normal, round, or square.</p>
+    <div data-url="http://boutique-demo.squarespace.com">
+      <span class="rm-highlight" data-top="16%" data-left="12%" data-right="88%">Social Icons</span>
+      <span class="rm-highlight" data-top="16%" data-left="88%" data-right="12%">Search Button</span>
+      <img data-src="/assets/navigation-options.jpg" />
+    </div>
+  </section>
+
+  <section class="rm-browser mobile">
+    <h2>Mobile Optimiziation</h2>
+    <p>Built with hand-held devices in mind, Boutique is optimized for browsing on smaller screens. Its navigation menu is designed to collapse and expand on mobile view.</p>
+    <div data-url="http://boutique-demo.squarespace.com">
+      <img data-src="/assets/mobile.jpg" />
+    </div>
+  </section>
+
+  <section class="rm-browser mobile" style="margin-top: -60px">
+    <div data-url="http://boutique-demo.squarespace.com">
+      <img data-src="/assets/mobile-menu.jpg" />
+    </div>
+   </section>
+
+  <!-- HELP SECTION -->
+
+  <section class="rm-help rm-grid three">
+    <h2>Using Squarespace 6</h2>
+    <div class="grid-item">
+      <div class="content-padding">
+        <a href="http://help.squarespace.com/?t=103959" target="_blank">
+          <img data-src="http://five.squarespace.com/storage/help-and-support-6/knowledgebase.png"/>
+          <span class="underline-wrapper"><span class="underline">Knowledge Base</span></span>
+        </a>
+      </div>
+      <p>Help topics and step-by-step guides on using Squarespace.</p>
+    </div>
+    <div class="grid-item">
+      <div class="content-padding">
+        <a href="http://workshops.squarespace.com/" target="_blank">
+          <img data-src="http://five.squarespace.com/storage/help-and-support-6/workshops.png"/>
+          <span class="underline-wrapper"><span class="underline">Workshops</span></span>
+        </a>
+      </div>
+      <p>Step by step articles on the various aspects and capabilities of Squarespace.</p>
+    </div>
+    <div class="grid-item">
+      <div class="content-padding">
+        <a href="http://help.squarespace.com/customer/portal/articles/644686-live-chat" target="_blank">
+          <img data-src="http://five.squarespace.com/storage/help-and-support-6/livechat.png"/>
+          <span class="underline-wrapper"><span class="underline">Live chat</span></span>
+        </a>
+      </div>
+      <p>Chat directly with a support specialist for immediate answers to your questions.</p>
+    </div>
+  </section>
+</section>
+
+<!-- === JAVASCRIPT === -->
+
+<script src="/universal/template-read-me/read-me.js"></script>
+
