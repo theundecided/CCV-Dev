@@ -7,6 +7,9 @@
     {.end}
     {squarespace-headers}
     <squarespace:script src="site.js" />
+	<squarespace:script src="/assets/calendar/lib/jquery.min.js">
+	<squarespace:script src="/assets/calendar/lib/moment.min.js">
+	<squarespace:script src="/assets/calendar/fullcalendar/fullcalendar.js">
   </head>
 
   <body class="{squarespace.page-classes}{.section website}{.section logoImageUrl} logo-image{.or} site-title{.end}{.end}" id="{squarespace.page-id}">
